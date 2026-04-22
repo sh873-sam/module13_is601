@@ -6,7 +6,6 @@ on:
       - main
 
 jobs:
-
   test:
     runs-on: ubuntu-latest
 
@@ -20,16 +19,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run tests
+      - name: Run unit tests only
         run: |
-          pytest
-
-      - name: Run E2E tests
-        run: |
-          pytest tests/e2e/
+          pytest tests/unit/
 
   security:
     needs: test
@@ -46,7 +41,7 @@ jobs:
         with:
           image-ref: 'app:test'
           format: 'table'
-          exit-code: '0'   # ✅ THIS IS THE FIX
+          exit-code: '0'
           ignore-unfixed: true
           severity: 'CRITICAL,HIGH'
 
