@@ -1,264 +1,134 @@
-# 📦 Project Setup
+# Module 13 IS601 Calculator Application
+
+This project is a FastAPI-based calculator web application that includes user authentication, PostgreSQL database integration, Docker containerization, GitHub Actions CI/CD automation, and automated testing.
+
+The application allows users to register, log in, perform mathematical calculations, and view calculation history through a web dashboard.
 
 ---
 
-# 🧩 1. Install Homebrew (Mac Only)
+# Features
 
-> Skip this step if you're on Windows.
-
-Homebrew is a package manager for macOS.  
-You’ll use it to easily install Git, Python, Docker, etc.
-
-**Install Homebrew:**
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-**Verify Homebrew:**
-
-```bash
-brew --version
-```
-
-If you see a version number, you're good to go.
+- User registration and login
+- JWT authentication
+- Secure password hashing
+- Calculator dashboard
+- Addition calculations
+- Subtraction calculations
+- Multiplication calculations
+- Division calculations
+- POWER calculation feature
+- Calculation history tracking
+- PostgreSQL database integration
+- Docker containerization
+- Docker Compose support
+- GitHub Actions CI/CD pipeline
+- Automated testing with pytest
+- Frontend validation and UI support
 
 ---
 
-# 🧩 2. Install and Configure Git
+# Final Project Feature
 
-## Install Git
+The final project enhancement added a new POWER calculation feature to the calculator application.
 
-- **MacOS (using Homebrew)**
+Example:
 
-```bash
-brew install git
-```
+2 ^ 3 = 8
 
-- **Windows**
+This feature includes:
 
-Download and install [Git for Windows](https://git-scm.com/download/win).  
-Accept the default options during installation.
-
-**Verify Git:**
-
-```bash
-git --version
-```
-
----
-
-## Configure Git Globals
-
-Set your name and email so Git tracks your commits properly:
-
-```bash
-git config --global user.name "Your Name"
-git config --global user.email "your_email@example.com"
-```
-
-Confirm the settings:
-
-```bash
-git config --list
-```
+- Backend calculation logic updates
+- SQLAlchemy model support
+- Pydantic schema validation updates
+- Frontend dashboard integration
+- Form validation support
+- Automated unit testing
+- Integration testing
+- UI workflow testing
+- Docker deployment verification
+- CI/CD pipeline validation
 
 ---
 
-## Generate SSH Keys and Connect to GitHub
+# Technologies Used
 
-> Only do this once per machine.
-
-1. Generate a new SSH key:
-
-```bash
-ssh-keygen -t ed25519 -C "your_email@example.com"
-```
-
-(Press Enter at all prompts.)
-
-2. Start the SSH agent:
-
-```bash
-eval "$(ssh-agent -s)"
-```
-
-3. Add the SSH private key to the agent:
-
-```bash
-ssh-add ~/.ssh/id_ed25519
-```
-
-4. Copy your SSH public key:
-
-- **Mac/Linux:**
-
-```bash
-cat ~/.ssh/id_ed25519.pub | pbcopy
-```
-
-- **Windows (Git Bash):**
-
-```bash
-cat ~/.ssh/id_ed25519.pub | clip
-```
-
-5. Add the key to your GitHub account:
-   - Go to [GitHub SSH Settings](https://github.com/settings/keys)
-   - Click **New SSH Key**, paste the key, save.
-
-6. Test the connection:
-
-```bash
-ssh -T git@github.com
-```
-
-You should see a success message.
+- FastAPI
+- PostgreSQL
+- SQLAlchemy
+- Docker
+- Docker Compose
+- GitHub Actions
+- Pytest
+- HTML
+- CSS
+- JavaScript
+- JWT Authentication
+- Pydantic
 
 ---
 
-# 🧩 3. Clone the Repository
+# Run Application
 
-Now you can safely clone the course project:
-
-```bash
-git clone <repository-url>
-cd <repository-directory>
-```
-
----
-
-# 🛠️ 4. Install Python 3.10+
-
-## Install Python
-
-- **MacOS (Homebrew)**
+Run the application using Docker Compose:
 
 ```bash
-brew install python
-```
+docker compose up --build
 
-- **Windows**
+Open the application in your browser:
 
-Download and install [Python for Windows](https://www.python.org/downloads/).  
-✅ Make sure you **check the box** `Add Python to PATH` during setup.
+http://localhost:8000
 
-**Verify Python:**
+Run Tests
 
-```bash
-python3 --version
-```
-or
-```bash
-python --version
-```
+Run automated tests locally:
 
----
+pytest
 
-## Create and Activate a Virtual Environment
+Docker Hub Repository
 
-(Optional but recommended)
+Docker Hub Repository Link:
 
-```bash
-python3 -m venv venv
-source venv/bin/activate   # Mac/Linux
-venv\Scripts\activate.bat  # Windows
-```
+https://hub.docker.com/r/sh873/module13_is601
 
-### Install Required Packages
+Docker Pull Command:
 
-```bash
-pip install -r requirements.txt
-```
+docker pull sh873/module13_is601:latest
+GitHub Repository
 
----
+GitHub Repository Link:
 
-# 🐳 5. (Optional) Docker Setup
+https://github.com/sh873-sam/module13_is601
 
-> Skip if Docker isn't used in this module.
+CI/CD Pipeline
 
-## Install Docker
+GitHub Actions automatically performs the following tasks:
 
-- [Install Docker Desktop for Mac](https://www.docker.com/products/docker-desktop/)
-- [Install Docker Desktop for Windows](https://www.docker.com/products/docker-desktop/)
+Runs automated tests
+Verifies application functionality
+Builds Docker containers
+Validates deployment configuration
+Confirms CI/CD workflow execution
 
-## Build Docker Image
+GitHub Actions workflow status:
 
-```bash
-docker build -t <image-name> .
-```
+Passing successfully
+Test Results
+100 tests passed
+1 test skipped
+Docker deployment verified successfully
+Application tested locally through browser UI
 
-## Run Docker Container
+Application Pages
 
-```bash
-docker run -it --rm <image-name>
-```
+The application includes:
 
----
+Home Page
+Login Page
+Registration Page
+Calculator Dashboard
+Calculation History Page
+Database
 
-# 🚀 6. Running the Project
+This project uses PostgreSQL for persistent database storage.
 
-- **Without Docker**:
-
-```bash
-python main.py
-```
-
-(or update this if the main script is different.)
-
-- **With Docker**:
-
-```bash
-docker run -it --rm <image-name>
-```
-
----
-
-# 📝 7. Submission Instructions
-
-After finishing your work:
-
-```bash
-git add .
-git commit -m "Complete Module X"
-git push origin main
-```
-
-Then submit the GitHub repository link as instructed.
-
----
-
-# 🔥 Useful Commands Cheat Sheet
-
-| Action                         | Command                                          |
-| ------------------------------- | ------------------------------------------------ |
-| Install Homebrew (Mac)          | `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` |
-| Install Git                     | `brew install git` or Git for Windows installer |
-| Configure Git Global Username  | `git config --global user.name "Your Name"`      |
-| Configure Git Global Email     | `git config --global user.email "you@example.com"` |
-| Clone Repository                | `git clone <repo-url>`                          |
-| Create Virtual Environment     | `python3 -m venv venv`                           |
-| Activate Virtual Environment   | `source venv/bin/activate` / `venv\Scripts\activate.bat` |
-| Install Python Packages        | `pip install -r requirements.txt`               |
-| Build Docker Image              | `docker build -t <image-name> .`                |
-| Run Docker Container            | `docker run -it --rm <image-name>`               |
-| Push Code to GitHub             | `git add . && git commit -m "message" && git push` |
-
----
-
-# 📋 Notes
-
-- Install **Homebrew** first on Mac.
-- Install and configure **Git** and **SSH** before cloning.
-- Use **Python 3.10+** and **virtual environments** for Python projects.
-- **Docker** is optional depending on the project.
-
----
-
-# 📎 Quick Links
-
-- [Homebrew](https://brew.sh/)
-- [Git Downloads](https://git-scm.com/downloads)
-- [Python Downloads](https://www.python.org/downloads/)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- [GitHub SSH Setup Guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+Database services are managed through Docker Compose
