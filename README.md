@@ -1,5 +1,6 @@
 # Module 13 IS601 Calculator Application
 Final Project submission for IS601 demonstrating FastAPI development, Docker deployment, CI/CD automation, authentication, PostgreSQL integration, and advanced calculator functionality.
+
 This project is a FastAPI-based calculator web application that includes user authentication, PostgreSQL database integration, Docker containerization, GitHub Actions CI/CD automation, and automated testing.
 
 The application allows users to register, log in, perform mathematical calculations, and view calculation history through a web dashboard.
